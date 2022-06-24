@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity 3</title>
+</head>
+<body>
+
+  <section id="card">
+    <h1>New Student Name</h1>
+    <h3>Role</h3>
+    <p>Bio Text Goes Here</p>
+  </section>
+
+
+  <script>
+    function updateCard(elem,name,role,bio)
+    {
+
+    const studentName = elem.querySelector('h1');
+    studentName.innerText = name;
+
+    const rol = elem.querySelector('h3');
+    rol.textContent = role;
+
+    const bioD = elem.querySelector('p');
+    bioD.textContent = bio;
+
+
+
+    }
+
+    const cardElement = document.getElementById('card');
+
+    updateCard(cardElement,'Vivek','Instructor','Teaches FE-2');
+    // updateCard(cardElement,'Amar','Student','Learns FE-2');
+  </script>
+</body>
+</html>

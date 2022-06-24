@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity 4</title>
+</head>
+<body>
+  
+  <ol id="elem">
+    <li>Hello</li>
+    <li>World</li>
+  </ol>
+
+
+  <script>
+    function appendToParent(parent,childTagType,text)
+    {
+      const newLi = document.createElement(childTagType);
+      newLi.textContent = text;
+
+      parent.append(newLi);
+
+    }
+
+    const parentElement = document.getElementById('elem');
+
+    appendToParent(parentElement,'li','Newly added');
+    // appendToParent(parentElement,'li','one more row');
+  </script>
+</body>
+</html>
