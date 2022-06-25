@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      background-color: rgb(224, 219, 182);
+      border-radius: 10px;
+      margin: auto;
+      width:50%;
+      height:200px;
+      padding:30px ;
+    }
+
+    div>h2 , div>p{
+      
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  
+  <script>
+
+    function fetchQuote(){
+
+      return fetch("https://api.kanye.rest/").then(function (res){
+        return res.json();
+      }).catch((err)=>{
+        throw new Error(err);
+      });
+    }
+
+    function addQuoteToDOM(quote){
+
+      const body = document.body;
+
+      const div = document.createElement('div');
+
+      const heading = document.createElement('h2');
+      heading.innerText = 'Once Kanye Said';
+
+
+      const newPara = document.createElement('p');
+
+      newPara.innerText = quote;
+
+      div.append(heading,newPara);
+
+      body.append(div);
+
+    }
+
+
+    function quoteKanye(){
+
+    fetchQuote().then((data)=>addQuoteToDOM(data.quote));
+
+    }
+
+    
+
+    quoteKanye();
+
+  </script>
+</body>
+</html>
