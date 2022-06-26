@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    // creates a function that append given child tag type to parent element(id ) with given text
+    function addNewChildElementToParent(parentId, childTagType, text) {
+
+  // get the parent element using parent Id
+
+  const parentElement = document.getElementById(parentId);
+
+  // create the child Tag type element
+  const childTag = document.createElement(childTagType);
+  
+  // assign the text to the content of childTag
+  childTag.innerText = text;
+
+
+  // append the childTag to the parent Element
+
+  parentElement.append(childTag);
+
+
+
+}
+
+
+    // create a function generateSortedList(arr) which takes @param arr 
+    // it creates and shows a sorted list on the web page 
+
+
+    function generateSortedList(arr)
+    {
+
+      // sorted the given array 
+      arr.sort((a,b)=>a-b);
+
+      // get the body element from the document 
+      const body = document.body;
+
+      // make a heading whose text is "Sorted List "
+      const heading = document.createElement('h2');
+      heading.innerText = 'Sorted List: ';
+
+      // make an unordered list elemnt 
+      const listElement = document.createElement('ul');
+
+
+      // append the heading and the list to the body
+
+      body.append(heading,listElement);
+      // set an id attribute to the list element id = 'sorted-list'
+      listElement.setAttribute("id","sorted-list");
+      
+
+      // iterate through the array , append all the element to the list 
+      arr.forEach((e)=>{
+        addNewChildElementToParent("sorted-list",'li',e);
+      });
+      
+
+
+      
+
+      
+
+    }
+
+
+
+    generateSortedList([25,58,18,12,23,48,19,28,23,47,101]);
+
+  </script>
+</body>
+</html>

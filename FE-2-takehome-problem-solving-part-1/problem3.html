@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    const url = "https://api.github.com/users";
+
+    // create a function fetchUsers() , which fetch data from the given url , returns
+    // in json format
+
+    async function fetchUsers(url){
+
+      const response = await fetch(url);
+      return response.json();
+    }
+
+
+    // create a function addUsersToDOM() , which call fetchUsers() , get the data 
+    // append all the users to the DOM
+
+    async function addUsersToDOM(url)
+    {
+      const data = await fetchUsers(url);
+      
+
+      // get the body element from the DOM 
+      const body = document.body;
+
+      // make a heading for users 
+
+      const heading = document.createElement('h2');
+      heading.innerText = 'Users: ';
+      // make a list element 
+
+      const usersList = document.createElement('ul');
+
+      // iterate through the loop , append each username 
+      // to the list  , using obj.login
+      data.forEach((obj)=>{
+        const listItem = document.createElement('li');
+        listItem.innerText = obj.login;
+        usersList.append(listItem);
+      });
+
+      console.log(usersList);
+
+
+      
+      // append the heading to the body 
+      // append the list to the body
+      body.append(heading,usersList);
+
+
+    }
+
+
+    addUsersToDOM(url);
+
+  </script>
+</body>
+</html>
