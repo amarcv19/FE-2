@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul>li{
+      background-color: khaki;
+      padding:15px 25px;
+      border:2px solid white;
+      text-align: center;
+    }
+
+    ul{
+      width:20%;
+    }
+
+    ul>li:hover{
+      background-color: rgb(206, 206, 56);
+    }
+  </style>
+</head>
+<body>
+  
+
+  <script>
+    
+
+    function getUsers(){
+
+      return fetch("https://api.github.com/users").then((res)=>{
+        return res.json();
+      }).catch((err)=>{
+        return err;
+      });
+
+    }
+
+
+    function createListItem(text)
+    {
+      const liItem  = document.createElement('li');
+      liItem.innerText = text.trim();
+
+      return liItem;
+    }
+
+
+    function showUsers()
+    {
+
+      const body = document.body;
+      const heading = document.createElement('h2');
+      heading.innerText = 'Users: ';
+      body.append(heading);
+
+      const ul = document.createElement('ul');
+      
+
+      getUsers().then((data)=>{
+        console.log(data);
+
+        data.forEach(e=>{
+          console.log(e.login);
+          ul.appendChild(createListItem(e.login));
+        });
+      }).catch((err)=>{
+        console.log(err);
+      })
+
+      body.append(ul);
+    }
+
+    showUsers();
+  </script>
+</body>
+</html>

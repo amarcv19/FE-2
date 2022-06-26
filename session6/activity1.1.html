@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    function fetchUserDetails(url)
+    {
+        return fetch(url).then((res)=>{
+          return res.json();
+        }).catch((err)=>{
+          return err;
+        })
+    }
+
+    let url = 'https://api.github.com/users';
+''
+    function getArrayOfUser(dataArray){
+      const ans = [];
+
+      for(let i = 0;i<dataArray.length;i++){
+        ans.push(dataArray[i].login);
+      } 
+
+      const body = document.body;
+      const heading = document.createElement('h2');
+      heading.innerText = 'Users: ';
+
+
+      const div = document.createElement('div');
+      div.append(heading);
+
+      const list = document.createElement('ol');
+
+      for(let i =0;i<ans.length;i++){
+
+        const liElement = document.createElement('li');
+        liElement.innerText = ans[i];
+
+        list.appendChild(liElement);
+      }
+
+      div.append(list);
+
+      body.append(div);
+    }
+
+    function getUsers(url){
+
+      
+      fetchUserDetails(url).then((res)=>{
+        getArrayOfUser(res);
+      
+      });
+
+    }
+
+     getUsers(url);
+
+    // console.log(arr);
+  </script>
+</body>
+</html>
