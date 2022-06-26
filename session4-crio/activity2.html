@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    function getListElement(content)
+    {
+      const liElement = document.createElement('li');
+
+      liElement.innerText = content;
+
+      return liElement;
+    }
+
+    function generateSortedList(arr)
+    {
+      const body = document.body;
+      const heading = document.createElement('h2');
+      heading.innerText = 'Sorted List: ';
+
+      const ul = document.createElement('ul');
+
+      arr.sort((a,b)=>a-b);
+
+      arr.forEach(e=>{
+        ul.append(getListElement(e));
+      });
+
+      body.append(heading,ul);
+    }
+
+    generateSortedList([25,58,18,12,19,23])
+  </script>
+</body>
+</html>
