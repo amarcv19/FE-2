@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    button{
+      padding:15px 25px;
+      border: 2px solid black;
+      border-radius: 5px;
+      /* border-spacing: 2px; */
+      margin:2px;
+    }
+  </style>
+</head>
+<body>
+  
+  <script>
+
+
+    // get the body node from the document
+    const body = document.body;
+
+
+    // create heading element for the page
+    // set the heading text as 'Counter'
+
+    const heading = document.createElement('h2');
+    heading.innerText = 'Counter';
+
+
+    // create a counter , set its  initial value as 0
+    const counter = document.createElement('h2');
+    counter.innerText = 0;
+
+
+    // create two buttons, one + , one -
+
+    const btn1 = document.createElement('button');
+    btn1.id = 'plus';
+    btn1.innerText = '+';
+
+    const btn2 = document.createElement('button');
+    btn2.id = 'minus';
+    btn2.innerText = '-';
+
+
+
+
+    // create function getCounter , it should return counter as integral value
+    function getCounter()
+    {
+      let text = counter.innerText;
+      return parseInt(text);
+    }
+
+    // create increaseCounter , it should increase counter by one
+
+    function increaseCounter()
+    {
+      counter.innerText = getCounter()+1;
+    }
+
+
+    // create decreaseCounter , it should decrease counter by one 
+    function decreaseCounter()
+    {
+      counter.innerText = getCounter()-1;
+    }
+
+    // add action listener on + plus button , with passed function as increaseCounter 
+    btn1.addEventListener('click',increaseCounter);
+
+    // add action listener on - minus button , with passed function as decreaseCounter
+    btn2.addEventListener('click',decreaseCounter);
+
+    // append all the nodes to the body 
+
+    body.append(heading,counter,btn1,btn2);
+
+
+  </script>
+</body>
+</html>

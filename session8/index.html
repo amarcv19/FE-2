@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+
+      #grand-parent{
+        width: 100%;
+        height:50vh;
+      }
+      #parent{
+        width: 100%;
+        height: 50%;
+      }
+
+      #child{
+        margin:auto;
+        display: relative;
+        padding:15px 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="grand-parent" style="background-color:skyblue;">grand-parent
+      <div id="parent" style="background-color: blue;">Parent
+        <button id="child" style="background-color: red;">Child</button>
+      </div>
+    </div>
+
+    <script>
+
+      const grandParent = document.getElementById('grand-parent');
+
+      const parent = document.getElementById('parent');
+
+      const child = document.getElementById('child');
+
+      grandParent.addEventListener('click',()=>{console.log('grand parent');});
+
+      parent.addEventListener('click',()=>{console.log('parent')});
+
+      child.addEventListener('click',()=>{console.log('child')});
+    </script>
+  </body>
+</html>

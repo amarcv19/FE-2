@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    input{
+      padding:15px;
+      margin: 5px;
+    }
+
+    button{
+      padding:15px;
+      margin:5px;
+    }
+  </style>
+</head>
+<body>
+  
+
+  <script>
+
+    // get body node from the document
+    const body = document.body;
+
+    // create input field for full name   having  attribute name = 'fullName'
+    const fullNameBox  = document.createElement('input');
+    fullNameBox.type = 'text';
+    fullNameBox.id = 'fullName';
+    fullNameBox.name = 'fullName';
+    fullNameBox.placeholder = 'Your full Name';
+
+
+    // create input field for email having attribute name = 'email'
+    const emailBox = document.createElement('input');
+    emailBox.type = 'text';
+    emailBox.name = 'email';
+    emailBox.id = 'email';
+    emailBox.placeholder = 'your email';
+
+
+    
+
+    // create a data object data  = {firstName : string,email:string} 
+    // store the inputs from the input  in this data object
+
+    const data = {
+      firstName:null,
+      email:null
+    };
+
+
+
+    // add the event listener to the input fields for updating inputs to the data object
+    fullNameBox.addEventListener('input',(e)=>{data.firstName = e.target.value});
+    emailBox.addEventListener('input',(e)=>{data.email = e.target.value});
+
+    // create  a button to display the data on the console 
+    const btn1 = document.createElement('button');
+    btn1.innerText = 'Show Details';
+
+    // append all the nodes to the body element 
+    body.append(fullNameBox,emailBox,btn1);
+
+
+    // add the event listener to the button to show data on the console
+
+    btn1.addEventListener('click',()=>{
+      console.log(data);
+    });
+
+    
+
+
+    
+
+
+  </script>
+</body>
+</html>
