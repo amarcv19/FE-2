@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" id="user-data">
+      <div>
+        <label for="fullname"> UserName: </label>
+      </div>
+      <input
+        type="text"
+        name="fullName"
+        id="user-id"
+        placeholder="Enter your name here"
+      />
+
+      <div>
+        <label for="email">Email:</label>
+      </div>
+      <input
+        type="text"
+        name="email"
+        id="email"
+        placeholder="Enter your email id here"
+      />
+
+      <div><label for="place">Place:</label></div>
+      <select name="place" id="place">
+        <option value="KE">Kerala</option>
+        <option value="BA">Bangalore</option>
+        <option value="GG">Gurgaon</option>
+        <option value="HB">Hyderabad</option>
+        <option value="DH">Delhi</option>
+      </select>
+
+      <div>
+        <label for="male">Male</label>
+      </div>
+      <input type="radio" name="gender" id="male" value="male" />
+      <div>
+        <label for="female">Female</label>
+      </div>
+      <input type="radio" name="gender" id="female" value="female" />
+
+      <div><label for="date">Date</label></div>
+      <input type="date" name="date" id="date" />
+
+      <div><label for="time">Time</label></div>
+      <input type="time" name="time" id="time" />
+
+      <div><button type="submit">Submit</button></div>
+    </form>
+
+    <script>
+      const body = document.body;
+
+      // data for storing input items
+      const data = {
+        fullName: null,
+        email: null,
+        gender: null,
+        place: null,
+        date: null,
+        time: null,
+      };
+
+      // set event listener on full name input box
+      const fullNameInput = document.getElementById("user-id");
+      fullNameInput.addEventListener("input", (e) => {
+        data.fullName = e.target.value;
+      });
+
+      // set event listener on email input box
+      const emailInput = document.getElementById("email");
+      emailInput.addEventListener("input", (e) => {
+        data.email = e.target.value;
+      });
+
+      // set event listener on place input box
+
+      const placeInput = document.getElementById("place");
+      placeInput.addEventListener("change", (e) => {
+        data.place = e.target.value;
+      });
+
+      // set event listener on radio input box
+
+      const maleRadio = document.getElementById("male");
+      const femaleRadio = document.getElementById("female");
+
+      maleRadio.addEventListener("change", (e) => {
+        data.gender = e.target.value;
+        console.log(data);
+      });
+
+      femaleRadio.addEventListener("change", (e) => {
+        data.gender = e.target.value;
+        console.log(data);
+      });
+
+      // set event listener on date input
+      const dateInput = document.getElementById("date");
+      dateInput.addEventListener("change", (e) => {
+        data.date = new Date(e.target.value);
+        console.log(data);
+      });
+
+      // set event listener on time input boxs
+
+      const timeInput = document.getElementById("time");
+      timeInput.addEventListener("change", (e) => {
+        let actualDate = new Date(e.target.value);
+
+        data.date = actualDate.getTime();
+        console.log(data);
+      });
+
+      // set even listener on form
+
+      const formElement = document.getElementById('user-data');
+      formElement.addEventListener('submit',e=>{
+        e.preventDefault();
+        console.log(data);
+      })
+    </script>
+  </body>
+</html>
